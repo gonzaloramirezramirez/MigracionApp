@@ -6,6 +6,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { Empresa } from 'src/app/shared/interfaces/sigo.interface';
 import { map, timeout } from 'rxjs/operators';
 import { SystemConfig } from 'src/app/shared/const/sigo.const';
+import { DBService } from '../../services/db.service';
 
 @Component({
   selector: 'sigo-login',
@@ -24,6 +25,7 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private alertController: AlertController,
     private loadingController: LoadingController,
+    private dbService: DBService
     ) { 
 
     }
@@ -77,6 +79,7 @@ export class LoginPage implements OnInit {
               //this.generalService.setCurrentUser(this.get_user());
               this.generalService.setCurrentEmpr(this.get_empr());
               this.generalService.SetCredentials(res, this.credentials.value,this.listEmpresas);
+              this.dbService.createDB();
               this.router.navigate(['/home']);
             }, async (res) => {
               await loading.dismiss();
