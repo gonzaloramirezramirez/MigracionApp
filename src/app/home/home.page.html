@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color='myblue'>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Despachos Recolección</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-virtual-scroll [items]="datosDespacho" approxItemHeight="320px">
+    <ion-card *virtualItem="let item; let itemBounds = bounds;" class="despacho_item">
+      <div [ngClass]=customCss(item.TipoVehiculo)>
+        <ion-grid>
+          <ion-row class="targetheader"  [ngStyle]="{'background-color': getColorSeguimiento(item.FecUltimoReporte)}">
+          <ion-col size="3">
+            <div>
+              <p><strong>{{configAlarmas[item.Estado].titulo}}</strong></p>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div>
+            <p><strong>{{ item.Vehiculo }}</strong></p>
+            </div>
+          </ion-col>
+          <ion-col size="3">
+            <div>
+              <p><strong>{{ item.FecUltimoReporte | date: 'dd/MM/YYYY h:mm:ss a' }}</strong></p>
+            </div>
+          </ion-col>
+          </ion-row>
+          <ion-row class="targetbody">
+            <ion-col size="2"> 
+              <!--img src="assets/img\GPS-iconsCircle\E/2.png"  || row.data.RetornoSuspendido == 0/-->
+              <img [src]="getImagenVehiculo(item.TipoVehiculo)">
+            </ion-col>
+            <ion-col size="8">
+              <div style="text-align: center;">
+                <p>Tramo: <strong>{{ item.Tramo }}</strong></p>
+              </div>
+            </ion-col>
+            <ion-col size="2">
+              <!--img src="assets/img\gif/location.gif" /-->
+              <img *ngIf="(item.Estado != 'ALARMA_ACCION') && configAlarmas[item.Estado]"
+                class="icon-alarma" [src]="configAlarmas[item.Estado].ruta"
+                [title]="configAlarmas[item.Estado].titulo">
+            </ion-col>
+            <ion-col size="4">
+              <div>
+                <p>Ruta: <strong>{{ item.Ruta }}</strong> Viaje: <strong>{{ item.NumeroViaje }}</strong></p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <p><strong>&nbsp; &nbsp; &nbsp;{{ item.NombreConductor }}</strong></p>
+              </div>
+            </ion-col>
+            <ion-col size="12" style="text-align: center;">
+              <div>
+                <p><strong>{{ item.TipoServicio }}</strong></p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-buttons class="targetfooter">
+          <ion-button>
+            <img title="Ultima Ubicacion" src="assets\img\maps/ubicacion.png" style="width : 100% ; height : 100%" 
+            [routerLink]="['/ultimaubicacion',item.IdVehiculo]">
+          </ion-button>
+          <ion-button>
+            <img title="Realizar Inspeccion" src="assets\img\maps/inspeccion.png" style="width : 100% ; height : 100%" (click)="goInspeccion(item)" >
+          </ion-button>
+          <ion-button>
+            <img title="Ver Recorrido" src="assets\img\maps/recorrido.png" style="width : 100% ; height : 100%" (click)="goRecorrido(item)">
+          </ion-button>
+          <ion-button>
+            <img title="Registrar Novedades" src="assets\img\maps/novedad.png" style="width : 100% ; height : 100%" (click)="goNovedades(item)" >
+          </ion-button>
+          <ion-button>
+            <img title="Mas Opciones" src="assets\img\maps/mas.png" style="width : 100% ; height : 100%" (click)="goMasOpciones(item)" >
+          </ion-button>
+        </ion-buttons>
+
+        <div *dxTemplate="let row of 'templateFecha'">
+          <i [ngStyle]="{'background-color': getColorSeguimiento(row)}"></i>
+          <span>{{row.data.FecUltimoReporte}}</span>
+        </div>
+      </div>
+
+    </ion-card>
+  </ion-virtual-scroll>
+</ion-content>

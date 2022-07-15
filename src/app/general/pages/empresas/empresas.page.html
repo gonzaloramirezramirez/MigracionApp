@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color='myblue'>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Empresas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="empresas_item" *ngFor="let item of listEmpresas; let i = index" (click)="goTo(item)">
+      <ion-icon slot="start" [ios]="item.Icon + '-outline'" [md]="item.Icon + '-sharp'"></ion-icon>
+      <h5>{{ item.NombreEmpresa }}</h5>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color='myblue'>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical" (click)="actualizarPosicion()"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Ultima Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="ultUbicacion" class="ubc_item">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><center>{{ ultUbicacion.Vehiculo }}</center></ion-card-title>
+        <ion-card-subtitle>
+          <div>
+            <p><center>Ultimo Reporte: <strong>{{ ultUbicacion.UltimoReporte | date: 'dd/MM/YYYY h:mm:ss a' }}</strong></center></p>
+          </div></ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div id="map"></div>
+
+</ion-content>

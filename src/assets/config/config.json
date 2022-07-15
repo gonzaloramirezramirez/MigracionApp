@@ -1,0 +1,9 @@
+{
+    "sist_sist": 6,
+    "app_adm": "SigAdmin",
+    "baseurlprod": "https://preprodbogotalimpiaws.sgsas.co",
+    "baseurl": "https://localhost:44370/",
+    "baseurldev": "https://devwsnewsigo.sgsas.co"
+
+}
+  

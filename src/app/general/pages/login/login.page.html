@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="myblue">
+    <ion-title>App Sigo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-background">
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+    <div class="login-background">
+      <h1>Log in</h1>
+      <!-- class="input-group" -->
+      <div class="login-container">
+        <!--Usuario-->
+        <ion-item class="login-field">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" formControlName="user" (change)="onUserSet()"></ion-input>
+        </ion-item>
+        <div *ngIf="(user.dirty || user.touched) && user.errors" class="errors">
+          <span *ngIf="user.errors?.required">El usuario es requerido.</span>
+        </div>
+        <!--Contraseña-->
+        <ion-item class="login-field">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">La Contraseña es requerida</span>
+          <span *ngIf="password.errors?.minlength">La Contraseña es minimo de 8 caracteres.</span>
+        </div>
+        <!--Empresa -->
+        <ion-item class="login-combo" *ngIf="visibleEmpresas">
+          <ion-label position="floating">Seleccione una Empresa</ion-label>
+          <ion-select interface="popover" class="selector" formControlName="empr">
+            <ion-select-option *ngFor="let empresa of listEmpresas" [value]="empresa.CodEmpresa">
+              <div style="font-size: 9px;">{{empresa.NombreEmpresa}}</div>
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        
+
+        <div *ngIf="(empr.dirty || empr.touched) && empr.errors" class="errors">
+          <span *ngIf="user.errors?.required">Debe seleccionar la empresa.</span>
+        </div>
+
+      </div>
+    </div>
+
+    <ion-button class="login-button" type="submit" expand="block">Iniciar
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </ion-button>
+    <a class="login-link" href="javascript:void(0);">¿Olvidó su contraseña?</a>
+  </form>
+</ion-content>

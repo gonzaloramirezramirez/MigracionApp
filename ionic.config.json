@@ -1,0 +1,7 @@
+{
+  "name": "New App Sigo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

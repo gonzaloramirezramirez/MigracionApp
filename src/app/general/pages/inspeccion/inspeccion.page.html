@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color='myblue'>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Inspección</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="empresas_item" *ngFor="let item of personas; let i = index">
+      <ion-icon slot="start" [ios]="item.Icon + '-outline'" [md]="item.Icon + '-sharp'"></ion-icon>
+      <h5>Id: {{ item.IdPersona }}</h5>
+      <h5>Documento: {{ item.NroDocumento }}</h5>
+      <h5>Alias: {{ item.Alias }}</h5>
+      <h5>Cargo: {{ item.Cargo }}</h5>
+      <h5>Nombre: {{ item.Nombre }}</h5>
+    </ion-item>
+  </ion-list>
+</ion-content>
