@@ -21,78 +21,11 @@ export class GeneralServiceService {
 
   constructor(private http: HttpClient,
               private localStorage: IonicStorage,
-              private db: SqliteHelperService,
               ) { 
     this.init();
     this.loadToken();
     
   }
-
-  //#region SQLite
-  /*
-  create(){
-    const query = 'CREATE TABLE IF NOT EXISTS persona(IdPersona INT NOT NULL PRIMARY KEY, Nombre TEXT, Documento INT NOT NULL, Foto TEXT, Cargo TEXT, eps TEXT,\
-                    arp TEXT, TipoSangre TEXT, Alias TEXT, FechaVenceLicencia VARCHAR(10), FechaUltActualizacion VARCHAR(10), IdGPS INT);';
-
-    return this.db.execute(query,[]);
-  }
-
-  drop(){
-    const query = 'drop table  IF EXISTS persona;';
-    return this.db.execute(query,[]);
-  }
-
-  get(){
-    const query = 'SELECT * FROM persona;';
-    return this.db.getData(query,[]);
-  }
-
-  multipleInserts(params: PersonaOperativa[]){
-    const query = 'INSERT INTO persona(IdPersona, Nombre, Documento, Foto, Cargo, eps, arp, TipoSangre, Alias, FechaVenceLicencia, FechaUltActualizacion) \
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
-    const data = params.map((p: PersonaOperativa) => {
-      const values = [];
-      values.push(query);
-      values.push([
-        p.IdPersona,
-        p.Nombre,
-        p.NroDocumento,
-        p.Foto,
-        p.Cargo,
-        p.NombreEps,
-        p.TipoSangre,
-        p.Alias,
-        p.FechaVenceLicencia,
-        p.FechaUltActualizacion
-      ]);
-      return values;
-    });
-    return this.db.executeBatch(data);
-  }
-
-  sync(params: PersonaOperativa[]){
-    return new Promise((resolve) => {
-      this.drop().then(() => {
-        this.create().then(() => {
-          this.multipleInserts(params).then((data) => {
-            resolve(data);
-          }).catch(error => {
-            console.log(error.message);
-            return null;
-          });//.catch((e) => reject(e));
-        }).catch(error => {
-          console.log(error.message);
-          return null;
-        });//.catch((e) => reject(e));
-      }).catch(error => {
-        console.log(error.message);
-        return null;
-      });//.catch((e) => reject(e));
-    })
-  }
-  */
-  //#endregion
-
   async loadToken() {
     const token =  await this.localStorage.get(TOKEN_KEY);  
 

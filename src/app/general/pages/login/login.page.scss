@@ -27,6 +27,12 @@
         border: 2px solid rgb(0, 30, 171);
     }
 
+    ::ng-deep .input-wrapper {          
+        display: block !important;
+        padding-top: 5px !important;
+        margin-left: 5px !important;        
+    }
+
     .login-combo {
         --background: #ffffff;
         --color: #282e2e;
@@ -112,4 +118,5 @@ ion-content {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
 

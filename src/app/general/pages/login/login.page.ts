@@ -7,6 +7,7 @@ import { Empresa } from 'src/app/shared/interfaces/sigo.interface';
 import { map, timeout } from 'rxjs/operators';
 import { SystemConfig } from 'src/app/shared/const/sigo.const';
 import { DBService } from '../../services/db.service';
+import { SincronizarService } from '../../services/sincronizar.service';
 
 @Component({
   selector: 'sigo-login',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
   empresas: Empresa[];
   listEmpresas: Empresa[];
   visibleEmpresas: boolean = false;
+  mostrarBoton: boolean = false;
 
   constructor(
     private generalService: GeneralServiceService, 
@@ -25,7 +27,8 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private alertController: AlertController,
     private loadingController: LoadingController,
-    private dbService: DBService
+    private dbService: DBService,
+    private sincronizarService: SincronizarService
     ) { 
 
     }
@@ -80,6 +83,7 @@ export class LoginPage implements OnInit {
               this.generalService.setCurrentEmpr(this.get_empr());
               this.generalService.SetCredentials(res, this.credentials.value,this.listEmpresas);
               this.dbService.createDB();
+              this.sincronizarService.DescargarDatos();
               this.router.navigate(['/home']);
             }, async (res) => {
               await loading.dismiss();
@@ -175,4 +179,7 @@ export class LoginPage implements OnInit {
     return this.credentials.get('empr');
   }
 
+  cambiarEmpresa(e){
+    this.mostrarBoton = e.value !== null;
+  }
 }

@@ -22,7 +22,8 @@ export const ConstSIGO = {
         DespachosRQ: '/Operacion/Despachos',
         UbicacionRQ: '/Operacion/ultimaposicion',
         RecorridoRQ: '/Operacion/obtenerrecorrido',
-        DatosInspeccionRQ: 'Operacion/obtenerdatosinspeccion',
+        DatosInspeccionRQ: '/Operacion/obtenerdatosinspeccion',
+        DescargarDatosRQ: '/Operacion/obtenerdatos'
     },
 
     // Funciones

@@ -7,6 +7,8 @@ import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { DBService } from '../../services/db.service';
+import { DxLookupModule } from 'devextreme-angular';
+import { SincronizarService } from '../../services/sincronizar.service';
 
 @NgModule({
   imports: [
@@ -15,9 +17,10 @@ import { DBService } from '../../services/db.service';
     IonicModule,
     LoginPageRoutingModule,
     IonicStorageModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DxLookupModule
   ],
   declarations: [LoginPage],
-  providers: [DBService]
+  providers: [DBService, SincronizarService]
 })
 export class LoginPageModule {}

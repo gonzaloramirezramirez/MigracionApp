@@ -28,16 +28,13 @@
           <span *ngIf="password.errors?.minlength">La Contraseña es minimo de 8 caracteres.</span>
         </div>
         <!--Empresa -->
-        <ion-item class="login-combo" *ngIf="visibleEmpresas">
-          <ion-label position="floating">Seleccione una Empresa</ion-label>
-          <ion-select interface="popover" class="selector" formControlName="empr">
-            <ion-select-option *ngFor="let empresa of listEmpresas" [value]="empresa.CodEmpresa">
-              <div style="font-size: 9px;">{{empresa.NombreEmpresa}}</div>
-            </ion-select-option>
-          </ion-select>
-        </ion-item>
-
         
+        <ion-item class="login-combo" *ngIf="visibleEmpresas">
+          <dx-lookup [dataSource]="listEmpresas" displayExpr="NombreEmpresa" valueExpr="CodEmpresa"
+          formControlName="empr"
+          (onValueChanged)="cambiarEmpresa($event)">
+          </dx-lookup>
+        </ion-item>
 
         <div *ngIf="(empr.dirty || empr.touched) && empr.errors" class="errors">
           <span *ngIf="user.errors?.required">Debe seleccionar la empresa.</span>
@@ -46,9 +43,12 @@
       </div>
     </div>
 
-    <ion-button class="login-button" type="submit" expand="block">Iniciar
-      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
-    </ion-button>
+    <div *ngIf="mostrarBoton">
+      <ion-button class="login-button" type="submit" expand="block">Iniciar
+        <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+      </ion-button>
+    </div>
+    
     <a class="login-link" href="javascript:void(0);">¿Olvidó su contraseña?</a>
   </form>
 </ion-content>

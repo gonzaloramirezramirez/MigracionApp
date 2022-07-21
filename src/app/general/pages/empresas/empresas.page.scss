@@ -45,7 +45,7 @@
 }
 
 .targetbody{
-  background: whaite;
+  background: white;
 }
 
 .targetfooter{
@@ -56,4 +56,9 @@
   --ion-button{
     align-items: none;
   }
+}
+
+.nombre-empresa {
+  font-family: var(--ion-font-family, inherit);
+  
 }

@@ -55,23 +55,81 @@ export class DBService {
   crearTablas() {
     let sql ='';  
     
-    //Personas
-    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Personas + ' (id string primary key, usuario text, empresa int, data text, fecha text, grupo text, sincronizado text)';
+    //Personal
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Personal + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
     this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });      
     //Vehiculos
-    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Vehiculos + ' (id string primary key, usuario text, empresa int, data text, fecha text, grupo text, sincronizado text)';
-    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });      
-       
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Vehiculos + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });    
+    //Sistemas Vehiculo
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.SistemasVehiculo + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Clases
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Clase + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Falla
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Falla + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Secuencia
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Secuencias + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Inspeccion
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Inspeccion + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Ruta
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Rutas + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Inspeccion Supervisor
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.InspeccionSupervisor + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Detalle Inspeccion
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.DetalleInspeccion + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterio Inspeccionado
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriterioInspeccionado + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Programacion
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.TripulacionProgramada + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Programacion Barrido
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.ProgramacionBarrido + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterios Preoperacionales
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriteriosPreOperacionales + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterio Preoperacional por Vehiculo
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriterioPreOperacionalVehiculo + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Bolsas por Empresa
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.BolsasEmpresa + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Zona
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Zonas + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Instalacion
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Instalaciones + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterio Facility
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriteriosFacility + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterio Inspeccion
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriterioInspeccionado + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Contenedor
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Contenedor + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
   }
 
     //Inserta los datos de la tabla
-  insertBD (key, data, tabla, usuario, empresa,  grupo=null, sincronizado = 'N', fecha = this.generalService.formatDate(new Date())) {
+  insertBD (key, data, tabla, usuario, empresa, sincronizado = 'N', fecha = this.generalService.formatDate(new Date())) {
     const codEmpresa = parseInt(empresa);
     const llave= key.toString();
-    const sql ="INSERT INTO " + tabla + " (id, usuario, empresa, data, fecha, grupo, sincronizado) VALUES "
-               +  "('" + llave +"','" + usuario + "'," + codEmpresa + ",'" + data + "','" + fecha + "','" + grupo + "','" + sincronizado + "')"
+    const sql ="INSERT INTO " + tabla + " (id, usuario, empresa, data, fecha, sincronizado) VALUES "
+               +  "('" + llave +"','" + usuario + "'," + codEmpresa + ",'" + data + "','" + fecha + "','" + sincronizado + "')"
         this.db.executeSql(sql,[]).then(row => {
+          console.log(row);
         }).catch(err =>{
+          console.log(err);
           throw err;
         });
     
@@ -114,7 +172,7 @@ export class DBService {
     }
 
   //Selecciona los datos de Sqlite
-  fetch(key, tabla, usuario, empresa, grupo = null, sincronizado = null) {
+  fetch(key, tabla, usuario, empresa, sincronizado = null) {
     const that = this;
     const codEmpresa = parseInt(empresa);
     return new Promise((resolve,reject)=>{
@@ -124,16 +182,11 @@ export class DBService {
         if(sincronizado){
           query = "SELECT * FROM " + tabla + " WHERE empresa=" + codEmpresa + " and usuario='" + usuario +"' and sincronizado='"+ sincronizado +"'";
         } else {
-
-          if(grupo){
-            query = "SELECT * FROM " + tabla + " WHERE empresa=" + codEmpresa + " and usuario='" + usuario +"' and grupo="+ grupo;
+          if (key) {
+            query = "SELECT * FROM " + tabla + " WHERE id='"+ key +"'";
           } else {
-            if (key) {
-              query = "SELECT * FROM " + tabla + " WHERE id='"+ key +"'";
-            } else {
-              query = "SELECT * FROM " + tabla + " WHERE empresa=" + codEmpresa + " and usuario='" + usuario +"'";
-            }
-          }
+            query = "SELECT * FROM " + tabla + " WHERE empresa=" + codEmpresa + " and usuario='" + usuario +"'";
+          }          
         }
 
         that.db.executeSql(query,[]).then(response => {
@@ -237,7 +290,6 @@ export class DBService {
         })
       }
     }
-
   }
 
 }
