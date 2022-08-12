@@ -31,11 +31,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "src/theme/variables.scss", 
-              "src/global.scss",
-              "node_modules/devextreme/dist/css/dx.light.css"
-            ],
+            "styles": ["src/theme/variables.scss", "src/global.scss"],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,

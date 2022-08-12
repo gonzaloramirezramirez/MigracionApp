@@ -97,11 +97,17 @@ export class RecorridorutaPage implements OnInit {
           this.markers.push(markerdir);
 
           if(id == 0){
-            this.ultPosX(reg.PosX);
-            this.ultPosY(reg.PosY);
-            this.centro({ lat: reg.PosY, lng: reg.PosX });
+            this.ultPosX = reg.PosX;
+            this.ultPosY = reg.PosY;
+            this.centro = { lat: reg.PosY, lng: reg.PosX };
             id = id++;
           }
+        }
+
+        //Cuando no hay datos de recorrido se muestra el vehiculo en la ubicacion de la empresa
+        if(data.Recorrido.length == 0){
+          this.ultPosX = data.ReferenciaGografica.PosX;
+          this.ultPosY = data.ReferenciaGografica.PosY;
         }
 
         this.cuadrantes(data.Geocercas);

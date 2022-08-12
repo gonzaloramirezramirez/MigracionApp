@@ -14,9 +14,11 @@ import { DespachoActivoRQ, DespachoActivoRS, DespachoWS, EjecutarFuncionSigoRQ, 
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
   idEmpresaSel: any;
   currUsr: any;
   datosDespacho: DespachoWS[];
+  selectTerm: string;
 
   gruposDispositivos: GrupoDispositivo[];
   grupoActual: GrupoDispositivo;

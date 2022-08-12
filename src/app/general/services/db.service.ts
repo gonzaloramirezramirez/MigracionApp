@@ -33,6 +33,8 @@ export class DBService {
     if (!this.platform.is('cordova')) {
       let local = window.openDatabase(this.DATABASE_NAME, '1.0', 'DEV', 5 * 1024 * 1024);
       this.db = this.browserDBInstance(local);
+
+      
       this.crearTablas();
     } else {
 
@@ -255,6 +257,24 @@ export class DBService {
       this.db.executeSql(consulta).then(rows => {
           if (rows[0]) {
               resolve(rows[0][0]);
+          } else {
+              resolve(null);
+          }
+      }).catch(err => {
+        reject(err);
+      });
+    });
+  }
+
+  //Obtiene inspecciones pendientes
+  getPendientes(){
+    return new Promise((resolve,reject)=> {
+      const estadoPendiente = 'P';
+      let consulta= "SELECT COUNT(*) AS pd FROM inspeccionsupervisor WHERE sincronizado = '" + estadoPendiente + "'" ;
+
+      this.db.executeSql(consulta).then(rows => {
+          if (rows.rows[0]) {
+              resolve(rows.rows[0].pd);
           } else {
               resolve(null);
           }

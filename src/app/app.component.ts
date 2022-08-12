@@ -14,6 +14,12 @@ export class AppComponent {
   public appPages = [
     { title: 'Empresas', url: '/empresas', icon: 'home' },
     { title: 'Despachos Recolección', url: '/home', icon: 'car' },
+    { title: 'Estado Operación', url: '/recorridoxrutaprogramada', icon: 'analytics' },
+    { title: 'Cierre de Anomalías', url: '/ltanovedadtiempo', icon: 'alert-circle' },
+    { title: 'Crear Autorización', url: '/autorizacion', icon: 'checkmark' },
+    { title: 'Supervisor Recolección', url: '/menunovedadessupervisor', icon: 'create' },
+    { title: 'Supervisor Barrido', url: '/menusupbarrido', icon: 'brush' },
+
     { title: 'Cerrar sesión', url: '/cerrar-sesion', icon: 'lock-closed' },
     
   ];

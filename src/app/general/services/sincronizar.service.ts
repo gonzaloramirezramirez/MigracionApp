@@ -31,9 +31,7 @@ export class SincronizarService {
       if(respuesta !== null){
 
         for(let dato of Object.entries(respuesta)){
-
           //Validar dato[0]  
-
           if (this.ValidarEnum(dato[0])) {
             this.InsertarDatos(dato[0], dato[1]);
           }         

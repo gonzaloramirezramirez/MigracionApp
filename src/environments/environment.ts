@@ -5,6 +5,6 @@ export const environment = {
   sist_sist: 6,
   app_adm: 'SigAdmin', // postgresframeweb ServpubDesaOra
   //baseurl: "https://preprodbogotalimpiaws.sgsas.co", //Produccion
-  //baseurl: "https://localhost:44370/", //Local
-  baseurl: "https://devwsnewsigo.sgsas.co" //Desarrollo
+  baseurl: "https://localhost:44370/", //Local
+  //baseurl: "https://devwsnewsigo.sgsas.co" //Desarrollo
 };

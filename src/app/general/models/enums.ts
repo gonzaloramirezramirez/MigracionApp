@@ -14,6 +14,7 @@ export enum Tablas {
     CriteriosFacility = 'criteriofacility',
     Clase = 'clase', 
     Falla = 'falla', 
+    
     //Tablas Locales
     Secuencias = 'secuencias',     
     Inspeccion = 'inspeccion', 

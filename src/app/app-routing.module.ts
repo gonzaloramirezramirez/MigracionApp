@@ -55,6 +55,26 @@ const routes: Routes = [
   {
     path: 'inspeccionrecoleccion',
     loadChildren: () => import('./general/pages/inspeccionrecoleccion/inspeccionrecoleccion.module').then( m => m.InspeccionrecoleccionPageModule)
+  },
+  {
+    path: 'menunovedadessupervisor',
+    loadChildren: () => import('./general/pages/menunovedadessupervisor/menunovedadessupervisor.module').then( m => m.MenunovedadessupervisorPageModule)
+  },
+  {
+    path: 'recorridoxrutaprogramada',
+    loadChildren: () => import('./general/pages/recorridoxrutaprogramada/recorridoxrutaprogramada.module').then( m => m.RecorridoxrutaprogramadaPageModule)
+  },
+  {
+    path: 'ltanovedadtiempo',
+    loadChildren: () => import('./general/pages/ltanovedadtiempo/ltanovedadtiempo.module').then( m => m.LtanovedadtiempoPageModule)
+  },
+  {
+    path: 'menusupbarrido',
+    loadChildren: () => import('./general/pages/menusupbarrido/menusupbarrido.module').then( m => m.MenusupbarridoPageModule)
+  },
+  {
+    path: 'autorizacion',
+    loadChildren: () => import('./general/pages/autorizacion/autorizacion.module').then( m => m.AutorizacionPageModule)
   }
 ];
 

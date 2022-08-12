@@ -27,12 +27,13 @@
         border: 2px solid rgb(0, 30, 171);
     }
 
+    /*
     ::ng-deep .input-wrapper {          
         display: block !important;
         padding-top: 5px !important;
         margin-left: 5px !important;        
-    }
-
+    }*/
+    
     .login-combo {
         --background: #ffffff;
         --color: #282e2e;
@@ -49,6 +50,7 @@
             font-size: 32px;
         }
 
+        
         .item-radio-checked.sc-ion-select-popover-md {
             --background: rgba(var(--ion-color-primary-rgb, 56, 128, 255), 0.08);
             --background-focused: var(--ion-color-primary, #3880ff);

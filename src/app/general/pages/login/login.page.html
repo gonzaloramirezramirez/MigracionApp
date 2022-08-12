@@ -10,6 +10,7 @@
       <h1>Log in</h1>
       <!-- class="input-group" -->
       <div class="login-container">
+
         <!--Usuario-->
         <ion-item class="login-field">
           <ion-label position="floating">Usuario</ion-label>
@@ -18,6 +19,7 @@
         <div *ngIf="(user.dirty || user.touched) && user.errors" class="errors">
           <span *ngIf="user.errors?.required">El usuario es requerido.</span>
         </div>
+
         <!--Contraseña-->
         <ion-item class="login-field">
           <ion-label position="floating">Contraseña</ion-label>
@@ -27,12 +29,13 @@
           <span *ngIf="password.errors?.required">La Contraseña es requerida</span>
           <span *ngIf="password.errors?.minlength">La Contraseña es minimo de 8 caracteres.</span>
         </div>
+
         <!--Empresa -->
-        
-        <ion-item class="login-combo" *ngIf="visibleEmpresas">
+        <ion-item class="login-field" *ngIf="visibleEmpresas">
           <dx-lookup [dataSource]="listEmpresas" displayExpr="NombreEmpresa" valueExpr="CodEmpresa"
           formControlName="empr"
           (onValueChanged)="cambiarEmpresa($event)">
+          <ion-icon slot="end" name="home-outline"></ion-icon>
           </dx-lookup>
         </ion-item>
 

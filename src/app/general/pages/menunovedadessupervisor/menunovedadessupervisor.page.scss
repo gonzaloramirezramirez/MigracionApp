@@ -1,0 +1,37 @@
+.button-menuinspeccion {
+
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 600;
+    width: 220px;
+    height: 120px;
+    border-radius: 10px 10px 10px 10px ;
+    border-width: 1px;
+    box-shadow: inset;
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0.2);
+    //background: rgb(33, 151, 243); 
+    //background: linear-gradient( rgb(33, 151, 243), #9198e5);
+    background: linear-gradient( rgb(33, 151, 243), rgb(0, 60, 131));
+    color: #fff!important;  
+ }
+
+.button-menuinspeccion .dx-button-content span {
+
+    vertical-align:central!important;
+    display:inline-block!important;
+    width: 100px!important;
+    padding-left: 0px;
+    white-space:pre-line;
+    text-align:center;   
+}
+
+.button-menuinspeccion .dx-icon {
+
+    color: #fff;
+}
+
+.button-menuinspeccion .dx-button-text {
+
+    color: #fff;     
+    text-align:center;       
+}
