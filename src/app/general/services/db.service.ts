@@ -114,8 +114,11 @@ export class DBService {
     //Criterio Facility
     sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriteriosFacility + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
     this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
-    //Criterio Inspeccion
-    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriterioInspeccionado + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    //Criterio por Servicio
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriteriosPorServicio + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
+    this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
+    //Criterios Barrido
+    sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.CriteriosBarrido + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
     this.db.executeSql(sql, []).then((res)=> { }).catch(e => { alert("error " + JSON.stringify(e)) });   
     //Contenedor
     sql = 'CREATE TABLE IF NOT EXISTS ' + Tablas.Contenedor + ' (id string primary key, usuario text, empresa int, data text, fecha text, sincronizado text)';
@@ -129,7 +132,6 @@ export class DBService {
     const sql ="INSERT INTO " + tabla + " (id, usuario, empresa, data, fecha, sincronizado) VALUES "
                +  "('" + llave +"','" + usuario + "'," + codEmpresa + ",'" + data + "','" + fecha + "','" + sincronizado + "')"
         this.db.executeSql(sql,[]).then(row => {
-          console.log(row);
         }).catch(err =>{
           console.log(err);
           throw err;

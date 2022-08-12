@@ -13,4 +13,32 @@
 </ion-header>
 
 <ion-content>
+  <dx-accordion
+    #accordion
+    [dataSource]="dsCriteriosInspeccion"
+    [collapsible]="true"
+    [multiple]="true"
+    [selectedIndex]="-1"
+    [focusStateEnabled]="true"
+    [animationDuration]="300"
+    id="accordion-container"
+  >
+    <div *dxTemplate="let data of 'title'">
+      <h1>{{ data.Sistema }}</h1>
+    </div>
+    <div *dxTemplate="let data of 'item'">
+
+      <div *ngFor="let criterio of data.Criterios">
+        {{criterio.Descripcion}}
+        <dx-radio-group
+          [items]="criterio.calificacionItem"
+          [valueExpr]="'value'"
+          [value]="criterio.Valor"
+          layout="horizontal"
+          
+        >
+        </dx-radio-group>
+      </div>
+    </div>
+  </dx-accordion>
 </ion-content>

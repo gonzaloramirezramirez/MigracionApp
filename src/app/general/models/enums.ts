@@ -14,7 +14,7 @@ export enum Tablas {
     CriteriosFacility = 'criteriofacility',
     Clase = 'clase', 
     Falla = 'falla', 
-    
+    CriteriosBarrido = 'criteriosbarrido',
     //Tablas Locales
     Secuencias = 'secuencias',     
     Inspeccion = 'inspeccion', 
@@ -39,5 +39,6 @@ export enum LlaveTabla {
     Instalaciones = 'IdInstalacion',
     CriteriosFacility = 'IdCriterio',
     Clase = 'IdClase', 
-    Falla = 'IdFalla'
+    Falla = 'IdFalla',
+    CriteriosBarrido = 'IdCriterio'
 }

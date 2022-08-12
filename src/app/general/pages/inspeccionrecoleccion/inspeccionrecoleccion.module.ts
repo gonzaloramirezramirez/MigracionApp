@@ -7,14 +7,21 @@ import { IonicModule } from '@ionic/angular';
 import { InspeccionrecoleccionPageRoutingModule } from './inspeccionrecoleccion-routing.module';
 
 import { InspeccionrecoleccionPage } from './inspeccionrecoleccion.page';
+import { DBService } from '../../services/db.service';
+import { GeneralServiceService } from '../../services/general-service.service';
+import { DxAccordionModule, DxListModule, DxRadioGroupModule } from 'devextreme-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InspeccionrecoleccionPageRoutingModule
+    InspeccionrecoleccionPageRoutingModule,
+    DxAccordionModule,
+    DxRadioGroupModule,
+    DxListModule
   ],
-  declarations: [InspeccionrecoleccionPage]
+  declarations: [InspeccionrecoleccionPage],
+  providers: [DBService, GeneralServiceService]
 })
 export class InspeccionrecoleccionPageModule {}
